@@ -8,7 +8,7 @@
 }
 
 @font-face {
-  font-family: 'Please write me a song';
+  font-family: 'Pleasewritemeasong';
   src: url('Pleasewritemeasong.woff') format('woff'),
       url('Pleasewritemeasong.ttf') format('truetype');
   font-weight: 500;
@@ -17,7 +17,7 @@
 }
 
 :root {
-  font-family: 'Please write me a song';
+  font-family: 'Pleasewritemeasong';
   line-height: 1.5;
   font-weight: 400;
 
