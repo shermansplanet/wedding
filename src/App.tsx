@@ -22,7 +22,7 @@ function App() {
     messagingSenderId: "895589907035",
     appId: "1:895589907035:web:093b39bcd6cd2493c09d7e"
   };
-  const app = initializeApp(config);
+  initializeApp(config);
 
   const getContent = (tab: Tabs) => {
     switch (tab) {
