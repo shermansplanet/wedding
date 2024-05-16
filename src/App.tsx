@@ -1,5 +1,6 @@
-import { useState } from 'react'
-import { initializeApp } from 'firebase/app'
+import { useMemo, useState } from 'react'
+import { FirebaseApp, initializeApp } from 'firebase/app'
+import { getDatabase, ref, child, get, DatabaseReference } from "firebase/database";
 import './App.css'
 
 enum Tabs {
@@ -9,25 +10,36 @@ enum Tabs {
   FAQ = 'FAQ'
 }
 
-function App() {
-  const [count, setCount] = useState(0)
-  const [tab, setTab] = useState<Tabs>(Tabs.HOME);
+type GuestData = {
+  name: string;
+}
 
-  const config = {
-    apiKey: "AIzaSyB0NBRt5oi1WcOLX5njGL1E3m1VSYT_ZF0",
-    authDomain: "tara-and-loren.firebaseapp.com",
-    databaseURL: "https://tara-and-loren-default-rtdb.firebaseio.com",
-    projectId: "tara-and-loren",
-    storageBucket: "tara-and-loren.appspot.com",
-    messagingSenderId: "895589907035",
-    appId: "1:895589907035:web:093b39bcd6cd2493c09d7e"
-  };
-  initializeApp(config);
+function App() {
+  const [tab, setTab] = useState<Tabs>(Tabs.HOME);
+  const [passcode, setPasscode] = useState<string>("");
+  const [passcodeData, setPasscodeData] = useState<GuestData>();
+  let app: FirebaseApp;
+  let dbRef: DatabaseReference;
+
+  [app, dbRef] = useMemo(() => {
+    const config = {
+      apiKey: "AIzaSyB0NBRt5oi1WcOLX5njGL1E3m1VSYT_ZF0",
+      authDomain: "tara-and-loren.firebaseapp.com",
+      databaseURL: "https://tara-and-loren-default-rtdb.firebaseio.com",
+      projectId: "tara-and-loren",
+      storageBucket: "tara-and-loren.appspot.com",
+      messagingSenderId: "895589907035",
+      appId: "1:895589907035:web:093b39bcd6cd2493c09d7e"
+    };
+    app = initializeApp(config);
+    dbRef = ref(getDatabase(app));
+    return [app, dbRef];
+  }, [])
 
   const getContent = (tab: Tabs) => {
     switch (tab) {
       case Tabs.HOME:
-        return <p>Welcome home!</p>;
+        return <h2>Welcome, {passcodeData?.name}!</h2>;
       case Tabs.SCHEDULE:
         return <p>The wedding starts at 5pm ? </p>;
       case Tabs.DRESS_CODE:
@@ -37,26 +49,40 @@ function App() {
     }
   }
 
+  const getHeading = () => <h1>Tara & Loren</h1>;
+
+  if (passcodeData == undefined) {
+    return (
+      <>
+        {getHeading()}
+        <input value={passcode} onChange={(e) => setPasscode(e.target.value)}></input>
+        <div style={{ height: 16 }} />
+        <button onClick={() => {
+          get(child(dbRef, `passcodes/` + passcode)).then((snapshot) => {
+            if (snapshot.exists()) {
+              setPasscodeData(snapshot.val())
+            } else {
+              console.log("No data available");
+            }
+          }).catch((error) => {
+            console.error(error);
+          });
+        }}>Submit</button>
+      </>
+    )
+  }
+
   return (
     <>
-      <h1>Tara & Loren</h1>
+      {getHeading()}
       <div style={{ display: 'flex', gap: 16 }}>
         <button style={{ border: 'none', background: 'none', }} onClick={() => setTab(Tabs.SCHEDULE)}>Schedule</button>
         <button style={{ border: 'none', background: 'none', }} onClick={() => setTab(Tabs.DRESS_CODE)}>Dress Code</button>
         <button style={{ border: 'none', background: 'none', }} onClick={() => setTab(Tabs.FAQ)}>FAQ</button>
       </div>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+        {getContent(tab)}
       </div>
-      {getContent(tab)}
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
