@@ -49,17 +49,20 @@ function App() {
     }
   }
 
-  const getHeading = () => <h1>Tara & Loren</h1>;
+  const getHeading = () => <>
+    <div className='titleContainer'><h1>Tara & Loren</h1></div>
+    <img className='weddingBorder' src='src/assets/wedding-site.png'></img>
+  </>;
 
   if (passcodeData == undefined) {
     return (
       <>
         {getHeading()}
-        <form onSubmit={(event) => {
+        <form className='passcodeContainer' onSubmit={(event) => {
           event.preventDefault();
           return false;
         }}>
-          <input value={passcode} onChange={(e) => setPasscode(e.target.value)}></input>
+          <input value={passcode} placeholder='passcode' onChange={(e) => setPasscode(e.target.value)}></input>
           <div style={{ height: 16 }} />
           <button onClick={() => {
             get(child(dbRef, `passcodes/` + passcode)).then((snapshot) => {
@@ -80,7 +83,7 @@ function App() {
   return (
     <>
       {getHeading()}
-      <div style={{ display: 'flex', gap: 16 }}>
+      <div className='navbar'>
         <button style={{ border: 'none', background: 'none', }} onClick={() => setTab(Tabs.SCHEDULE)}>Schedule</button>
         <button style={{ border: 'none', background: 'none', }} onClick={() => setTab(Tabs.DRESS_CODE)}>Dress Code</button>
         <button style={{ border: 'none', background: 'none', }} onClick={() => setTab(Tabs.FAQ)}>FAQ</button>
