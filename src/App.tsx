@@ -55,19 +55,24 @@ function App() {
     return (
       <>
         {getHeading()}
-        <input value={passcode} onChange={(e) => setPasscode(e.target.value)}></input>
-        <div style={{ height: 16 }} />
-        <button onClick={() => {
-          get(child(dbRef, `passcodes/` + passcode)).then((snapshot) => {
-            if (snapshot.exists()) {
-              setPasscodeData(snapshot.val())
-            } else {
-              console.log("No data available");
-            }
-          }).catch((error) => {
-            console.error(error);
-          });
-        }}>Submit</button>
+        <form onSubmit={(event) => {
+          event.preventDefault();
+          return false;
+        }}>
+          <input value={passcode} onChange={(e) => setPasscode(e.target.value)}></input>
+          <div style={{ height: 16 }} />
+          <button onClick={() => {
+            get(child(dbRef, `passcodes/` + passcode)).then((snapshot) => {
+              if (snapshot.exists()) {
+                setPasscodeData(snapshot.val())
+              } else {
+                console.log("No data available");
+              }
+            }).catch((error) => {
+              console.error(error);
+            });
+          }}>Submit</button>
+        </form>
       </>
     )
   }
