@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'Marvelous';
-  src: url('Marvelous.woff') format('woff'),
-    url('Marvelous.ttf') format('truetype');
+  src: url('https: //github.com/shermansplanet/wedding/raw/main/Marvelous.woff') format('woff'),
+    url('https: //github.com/shermansplanet/wedding/raw/main/Marvelous.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -9,8 +9,8 @@
 
 @font-face {
   font-family: 'Pleasewritemeasong';
-  src: url('Pleasewritemeasong.woff') format('woff'),
-    url('Pleasewritemeasong.ttf') format('truetype');
+  src: url('https: //github.com/shermansplanet/wedding/raw/main/Pleasewritemeasong.woff') format('woff'),
+    url('https: //github.com/shermansplanet/wedding/raw/main/Pleasewritemeasong.ttf') format('truetype');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
