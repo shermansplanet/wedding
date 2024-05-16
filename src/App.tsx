@@ -65,7 +65,7 @@ function App() {
           <input value={passcode} placeholder='passcode' onChange={(e) => setPasscode(e.target.value)}></input>
           <div style={{ height: 16 }} />
           <button onClick={() => {
-            get(child(dbRef, `passcodes/` + passcode)).then((snapshot) => {
+            get(child(dbRef, `passcodes/` + passcode.toLowerCase())).then((snapshot) => {
               if (snapshot.exists()) {
                 setPasscodeData(snapshot.val())
               } else {
