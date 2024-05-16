@@ -18,11 +18,12 @@
 
 :root {
   font-family: 'Pleasewritemeasong';
-  line-height: 1.5;
-  font-weight: 400;
 
   background-color: #242424;
   --gold: #985;
+  --highlight: #ec9;
+
+  font-size: 16pt;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -40,9 +41,11 @@ body {
 }
 
 button {
+  position: relative;
   font-family: 'Pleasewritemeasong';
   font-size: 24pt;
   border: 1px solid var(--gold);
+  border-radius: 4px;
   cursor: pointer;
   background: none;
   padding: 8px;
@@ -53,12 +56,12 @@ button {
 
 button:hover,
 button:focus {
-  color: white;
-  border-color: white;
+  color: var(--highlight);
+  border-color: var(--highlight);
+  scale: 1.05;
 }
 
 button:active {
   transition: 0s;
-  position: relative;
-  scale: 1.1;
+  scale: 0.9;
 }

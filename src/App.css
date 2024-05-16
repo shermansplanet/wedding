@@ -10,6 +10,7 @@
   max-width: 100%;
   margin-top: -30%;
   margin-bottom: -30%;
+  pointer-events: none;
 }
 
 .titleContainer {
@@ -31,6 +32,7 @@ h1 {
 .navbar {
   display: flex;
   justify-content: center;
+  gap: 16px;
 }
 
 input {
@@ -41,17 +43,22 @@ input {
   margin-top: 32px;
   background: none;
   border: none;
-  color: var(--gold);
+  color: var(--highlight);
   border-bottom: 2px solid var(--gold);
   outline: none;
   transition-duration: 0.1s;
   text-align: center;
 }
 
+input:hover {
+  border-color: var(--highlight);
+}
+
 input:active,
 input:focus {
   transition-duration: 0.1s;
   background-color: #9843;
+  border-color: var(--highlight);
 }
 
 .passcodeContainer {
