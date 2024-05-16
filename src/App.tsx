@@ -51,7 +51,7 @@ function App() {
 
   const getHeading = () => <>
     <div className='titleContainer'><h1>Tara & Loren</h1></div>
-    <img className='weddingBorder' src='https://raw.githubusercontent.com/shermansplanet/wedding/main/src/assets/wedding-site.png'></img>
+    <img className='weddingBorder' src='https://raw.githubusercontent.com/shermansplanet/wedding/main/src/assets/wedding-border.png'></img>
   </>;
 
   if (passcodeData == undefined) {
