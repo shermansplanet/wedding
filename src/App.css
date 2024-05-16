@@ -66,3 +66,13 @@ input:focus {
   flex-direction: column;
   align-items: center;
 }
+
+@media (min-width: 600px) {
+  .weddingBorder {
+    margin-bottom: -52%;
+  }
+
+  .navbar {
+    margin-bottom: 128px;
+  }
+}

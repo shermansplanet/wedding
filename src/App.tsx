@@ -58,6 +58,7 @@ function App() {
     return (
       <>
         {getHeading()}
+        <div className='navbar' style={{ height: "20px" }} />
         <form className='passcodeContainer' onSubmit={(event) => {
           event.preventDefault();
           return false;
