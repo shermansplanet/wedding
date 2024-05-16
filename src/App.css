@@ -2,13 +2,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: white;
+  color: var(--highlight);
 }
 
 .weddingBorder {
   width: 800px;
   max-width: 100%;
-  margin-top: -30%;
+  margin-top: -27%;
   margin-bottom: -30%;
   pointer-events: none;
 }
@@ -17,7 +17,7 @@
   container-type: size;
   resize: horizontal;
   width: 400px;
-  max-width: 50%;
+  max-width: 64%;
   display: flex;
   justify-content: center;
 }
