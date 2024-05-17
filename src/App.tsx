@@ -1,17 +1,20 @@
 import { useMemo, useState } from 'react'
 import { FirebaseApp, initializeApp } from 'firebase/app'
 import { getDatabase, ref, child, get, DatabaseReference } from "firebase/database";
+import Rsvp from './Rsvp.tsx'
 import './App.css'
 
 enum Tabs {
   HOME = 'HOME',
   SCHEDULE = 'SCHEDULE',
   DRESS_CODE = 'DRESS_CODE',
-  FAQ = 'FAQ'
+  FAQ = 'FAQ',
+  RSVP = 'RSVP'
 }
 
-type GuestData = {
+export type GuestData = {
   name: string;
+  attending: boolean;
 }
 
 function App() {
@@ -46,6 +49,8 @@ function App() {
         return <p>You are dressing up for the park </p>;
       case Tabs.FAQ:
         return <p>No one has asked me a question yet. </p>;
+      case Tabs.RSVP:
+        return passcodeData == undefined ? null : <Rsvp guestData={passcodeData} passcode={passcode} />;
     }
   }
 
@@ -63,10 +68,10 @@ function App() {
           event.preventDefault();
           return false;
         }}>
-          <input value={passcode} placeholder='passcode' onChange={(e) => setPasscode(e.target.value)}></input>
+          <input value={passcode} placeholder='passcode' onChange={(e) => setPasscode(e.target.value.toLowerCase())}></input>
           <div style={{ height: 16 }} />
           <button onClick={() => {
-            get(child(dbRef, `passcodes/` + passcode.toLowerCase())).then((snapshot) => {
+            get(child(dbRef, `passcodes/` + passcode)).then((snapshot) => {
               if (snapshot.exists()) {
                 setPasscodeData(snapshot.val())
               } else {
@@ -85,6 +90,7 @@ function App() {
     <>
       {getHeading()}
       <div className='navbar'>
+        <button style={{ border: 'none', background: 'none', }} onClick={() => setTab(Tabs.RSVP)}>RSVP</button>
         <button style={{ border: 'none', background: 'none', }} onClick={() => setTab(Tabs.SCHEDULE)}>Schedule</button>
         <button style={{ border: 'none', background: 'none', }} onClick={() => setTab(Tabs.DRESS_CODE)}>Dress Code</button>
         <button style={{ border: 'none', background: 'none', }} onClick={() => setTab(Tabs.FAQ)}>FAQ</button>

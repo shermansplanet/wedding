@@ -29,6 +29,10 @@ h1 {
   margin: 0px;
 }
 
+h2 {
+  margin: 12px 4px;
+}
+
 .navbar {
   display: flex;
   justify-content: center;

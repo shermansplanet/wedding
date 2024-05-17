@@ -65,3 +65,19 @@ button:active {
   transition: 0s;
   scale: 0.9;
 }
+
+.checkboxRow {
+  display: flex;
+  align-items: center;
+}
+
+.checkmarkButton {
+  margin: 4px;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+.checked {
+  background-color: var(--highlight);
+}
