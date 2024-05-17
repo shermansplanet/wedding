@@ -14,7 +14,7 @@ enum Tabs {
 
 export type GuestData = {
   name: string;
-  attending: boolean;
+  attending?: boolean;
 }
 
 function App() {
