@@ -13,8 +13,12 @@ enum Tabs {
 }
 
 export type GuestData = {
-  name: string;
-  attending?: boolean;
+  names: string[];
+  rsvp?: RsvpData[]
+}
+
+export type RsvpData = {
+  attending: boolean;
 }
 
 function App() {
@@ -42,7 +46,7 @@ function App() {
   const getContent = (tab: Tabs) => {
     switch (tab) {
       case Tabs.HOME:
-        return <h2>Welcome, {passcodeData?.name}!</h2>;
+        return <h2>Welcome, {passcodeData?.names.join(", ")}!</h2>;
       case Tabs.SCHEDULE:
         return <p>The wedding starts at 5pm ? </p>;
       case Tabs.DRESS_CODE:
