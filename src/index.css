@@ -81,3 +81,15 @@ button:active {
 .checked {
   background-color: var(--highlight);
 }
+
+.savedIndicator {
+  margin-top: 8px;
+  transition-duration: 0.2s;
+  opacity: 1;
+}
+
+.hidden {
+  position: relative;
+  translate: 0px -16px;
+  opacity: 0.0;
+}

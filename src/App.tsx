@@ -19,6 +19,7 @@ export type GuestData = {
 
 export type RsvpData = {
   attending: boolean;
+  dietaryRestrictions: string;
 }
 
 function App() {
