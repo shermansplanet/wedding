@@ -3,6 +3,7 @@ import { FirebaseApp, initializeApp } from 'firebase/app'
 import { getDatabase, ref, child, get, DatabaseReference } from "firebase/database";
 import Rsvp from './Rsvp.tsx'
 import './App.css'
+import Schedule from './Schedule.tsx';
 
 enum Tabs {
   HOME = 'HOME',
@@ -51,7 +52,7 @@ function App() {
       case Tabs.HOME:
         return <h2>Welcome, {passcodeData?.names.join(", ")}!</h2>;
       case Tabs.SCHEDULE:
-        return <p>The wedding starts at 5pm ? </p>;
+        return <Schedule />;
       case Tabs.DRESS_CODE:
         return <p>You are dressing up for the park </p>;
       case Tabs.FAQ:
@@ -69,6 +70,36 @@ function App() {
   </>;
 
   if (passcodeData == undefined) {
+
+    function getCookie(cname: string): string {
+      let name = cname + "=";
+      let decodedCookie = decodeURIComponent(document.cookie);
+      let ca = decodedCookie.split(';');
+      for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+          c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+          return c.substring(name.length, c.length);
+        }
+      }
+      return "";
+    }
+
+    let cachedPasscode = getCookie("passcode");
+    if (cachedPasscode != "") {
+      get(child(dbRef, `passcodes/` + cachedPasscode)).then((snapshot) => {
+        if (snapshot.exists()) {
+          setPasscodeData(snapshot.val())
+        } else {
+          console.log("No data available");
+        }
+      }).catch((error) => {
+        console.error(error);
+      });
+    }
+
     return (
       <>
         {getHeading()}
@@ -80,6 +111,7 @@ function App() {
           <input value={passcode} placeholder='passcode' onChange={(e) => setPasscode(e.target.value.toLowerCase())}></input>
           <div style={{ height: 16 }} />
           <button onClick={() => {
+            document.cookie = "passcode=" + passcode + "; expires=Sun, 25 Aug 2024 12:00:00 UTC";
             get(child(dbRef, `passcodes/` + passcode)).then((snapshot) => {
               if (snapshot.exists()) {
                 setPasscodeData(snapshot.val())
