@@ -1,29 +1,29 @@
 @font-face {
   font-family: 'Marvelous';
-  src: url('Marvelous-wKUQDZ2s.woff') format('woff'),
-    url('Marvelous-C6O0qG9h.ttf') format('truetype');
+  src: url('Marvelous.woff') format('woff'),
+      url('Marvelous.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Pleasewritemeasong';
-  src: url('Pleasewritemeasong-DyIM2PSP.woff') format('woff'),
-    url('Pleasewritemeasong-IvxD2Inp.ttf') format('truetype');
+  font-family: 'Please write me a song';
+  src: url('Pleasewritemeasong.woff') format('woff'),
+      url('Pleasewritemeasong.ttf') format('truetype');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 
 :root {
-  font-family: 'Pleasewritemeasong';
+  font-family: 'Please write me a song';
+  line-height: 1.5;
+  font-weight: 400;
 
-  background-color: #d5d1c3;
-  --gold: #985;
-  --highlight: #530;
-
-  font-size: 16pt;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -31,65 +31,62 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
 body {
+  font-size: 1.5em;
   margin: 0;
-  display: flex;
   place-items: center;
-  align-items: center;
-  justify-content: center;
+  min-width: 320px;
   min-height: 100vh;
 }
 
+p {
+  margin-block: 0;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+  font-family: 'Marvelous';
+}
+
 button {
-  position: relative;
-  font-family: 'Pleasewritemeasong';
-  font-size: 24pt;
-  border: 1px solid var(--gold);
-  border-radius: 4px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  font-style: italic;
   cursor: pointer;
-  background: none;
-  padding: 8px;
-  color: var(--gold);
-  transition: 0.1s;
-  outline: none;
+  background: transparent;
+  transition: border-color 0.25s;
+}
+button:hover {
+  background-color: #d2c8af;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
 }
 
-button:hover,
-button:focus {
-  color: var(--highlight);
-  border-color: var(--highlight);
-  scale: 1.05;
-}
-
-button:active {
-  transition: 0s;
-  scale: 0.9;
-}
-
-.checkboxRow {
-  display: flex;
-  align-items: center;
-}
-
-.checkmarkButton {
-  margin: 4px;
-  width: 16px;
-  height: 16px;
-  margin-right: 8px;
-}
-
-.checked {
-  background-color: var(--highlight);
-}
-
-.savedIndicator {
-  margin-top: 8px;
-  transition-duration: 0.2s;
-  opacity: 1;
-}
-
-.hidden {
-  position: relative;
-  translate: 0px -16px;
-  opacity: 0.0;
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
 }
