@@ -1,34 +1,84 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--highlight);
+}
+
+.weddingBorder {
+  width: 800px;
+  max-width: 100%;
+  margin-top: -27%;
+  margin-bottom: -30%;
+  pointer-events: none;
+}
+
+.titleContainer {
+  container-type: size;
+  resize: horizontal;
+  width: 400px;
+  max-width: 64%;
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 28cqw;
+  line-height: 1.1;
+  font-family: 'Marvelous';
+  margin: 0px;
+}
+
+h2 {
+  margin: 12px 4px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  gap: 4px 16px;
+  flex-wrap: wrap;
+  margin: 0px 65px;
+}
+
+input {
+  font-family: 'Pleasewritemeasong';
+  width: 200px;
+  font-size: 18pt;
+  padding: 6px 8px;
+  margin-top: 32px;
+  background: none;
+  border: none;
+  color: var(--highlight);
+  border-bottom: 2px solid var(--gold);
+  outline: none;
+  transition-duration: 0.1s;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+input:hover {
+  border-color: var(--highlight);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+input:active,
+input:focus {
+  transition-duration: 0.1s;
+  background-color: #9843;
+  border-color: var(--highlight);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+.passcodeContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (min-width: 600px) {
+  .weddingBorder {
+    margin-bottom: -52%;
+  }
+
+  .navbar {
+    margin-bottom: 128px;
   }
 }
