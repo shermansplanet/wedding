@@ -4,6 +4,7 @@ import { getDatabase, ref, child, get, DatabaseReference } from "firebase/databa
 import Rsvp from './Rsvp.tsx'
 import './App.css'
 import Schedule from './Schedule.tsx';
+import Larp from './Larp.tsx';
 
 enum Tabs {
   HOME = 'HOME',
@@ -58,7 +59,7 @@ function App() {
       case Tabs.FAQ:
         return <p>No one has asked me a question yet. </p>;
       case Tabs.LARP:
-        return <p>plarp </p>;
+        return <Larp />;
       case Tabs.RSVP:
         return passcodeData == undefined ? null : <Rsvp guestData={passcodeData} passcode={passcode} />;
     }
