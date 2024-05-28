@@ -29,6 +29,7 @@ export type RsvpData = {
 function App() {
   const [tab, setTab] = useState<Tabs>(Tabs.HOME);
   const [passcode, setPasscode] = useState<string>("");
+  const [error, setError] = useState<string>("");
   const [passcodeData, setPasscodeData] = useState<GuestData>();
   let app: FirebaseApp;
   let dbRef: DatabaseReference;
@@ -55,9 +56,9 @@ function App() {
       case Tabs.SCHEDULE:
         return <Schedule />;
       case Tabs.DRESS_CODE:
-        return <p>You are dressing up for the park </p>;
+        return <p>You are dressing up for the park. More to come later!</p>;
       case Tabs.FAQ:
-        return <p>No one has asked me a question yet. </p>;
+        return <p>No one has asked us a question yet.</p>;
       case Tabs.LARP:
         return <Larp />;
       case Tabs.RSVP:
@@ -109,7 +110,7 @@ function App() {
           event.preventDefault();
           return false;
         }}>
-          <input value={passcode} placeholder='passcode' onChange={(e) => setPasscode(e.target.value.toLowerCase())}></input>
+          <input value={passcode} placeholder='passcode' onChange={(e) => setPasscode(e.target.value.toLowerCase().trim())}></input>
           <div style={{ height: 16 }} />
           <button onClick={() => {
             document.cookie = "passcode=" + passcode + "; expires=Sun, 25 Aug 2024 12:00:00 UTC";
@@ -117,12 +118,13 @@ function App() {
               if (snapshot.exists()) {
                 setPasscodeData(snapshot.val())
               } else {
-                console.log("No data available");
+                setError("Couldn't recognize that passcode!");
               }
             }).catch((error) => {
               console.error(error);
             });
           }}>Submit</button>
+          <p>{error}</p>
         </form>
       </>
     )

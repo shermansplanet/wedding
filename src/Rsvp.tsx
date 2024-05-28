@@ -53,6 +53,7 @@ const Rsvp = ({ guestData, passcode }: RsvpProps) => {
     }
 
     return <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+        <p>Please RSVP by July 13.</p>
         {rsvpElements}
         <button onClick={() => {
             set(ref(getDatabase(), 'passcodes/' + passcode + "/rsvp"), rsvps);

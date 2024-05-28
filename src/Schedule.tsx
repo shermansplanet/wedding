@@ -2,7 +2,7 @@ import './App.css'
 
 function Schedule() {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 16, textAlign: 'center' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'center' }}>
       <h2>Tentative Wedding Schedule</h2>
       <p>August 24, 2024</p>
       <p>Stable Cafe </p>
