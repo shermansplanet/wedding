@@ -14,6 +14,7 @@ const Rsvp = ({ guestData, passcode }: RsvpProps) => {
     const [timeout, setTimeoutState] = useState<NodeJS.Timeout>();
 
     let rsvpElements = new Array<JSX.Element>();
+
     for (let i = 0; i < guestCount; i++) {
         const ci = i;
         if (rsvps[i] == undefined) {
@@ -50,6 +51,11 @@ const Rsvp = ({ guestData, passcode }: RsvpProps) => {
                 }}
             ></input>
         </div>)
+    }
+
+    set(ref(getDatabase(), 'passcodes/' + passcode + "/rsvp"), rsvps);
+    if (timeout != undefined) {
+        clearTimeout(timeout);
     }
 
     return <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>

@@ -27,7 +27,7 @@ export type RsvpData = {
 }
 
 function App() {
-  const [tab, setTab] = useState<Tabs>(Tabs.HOME);
+  const [tab, setTab] = useState<Tabs>(Tabs.RSVP);
   const [passcode, setPasscode] = useState<string>("");
   const [error, setError] = useState<string>("");
   const [passcodeData, setPasscodeData] = useState<GuestData>();
@@ -93,7 +93,8 @@ function App() {
     if (cachedPasscode != "") {
       get(child(dbRef, `passcodes/` + cachedPasscode)).then((snapshot) => {
         if (snapshot.exists()) {
-          setPasscodeData(snapshot.val())
+          setPasscode(cachedPasscode);
+          setPasscodeData(snapshot.val());
         } else {
           console.log("No data available");
         }
