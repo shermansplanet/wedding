@@ -53,9 +53,13 @@ const Rsvp = ({ guestData, passcode }: RsvpProps) => {
         </div>)
     }
 
-    set(ref(getDatabase(), 'passcodes/' + passcode + "/rsvp"), rsvps);
-    if (timeout != undefined) {
-        clearTimeout(timeout);
+    try {
+        set(ref(getDatabase(), 'passcodes/' + passcode + "/rsvp"), rsvps);
+        if (timeout != undefined) {
+            clearTimeout(timeout);
+        }
+    } catch (ignored) {
+
     }
 
     return <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
