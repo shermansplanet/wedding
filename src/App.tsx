@@ -111,7 +111,7 @@ function App() {
     if (molting) {
       return (
         <>
-          <img src='https://i.imgur.com/zmI30rM.jpeg'
+          <img src='https://raw.githubusercontent.com/shermansplanet/wedding/main/src/assets/molting-circus.jpg'
             style={{ width: "400px" }} />
           <div className="card">
             {getContent(Tabs.LARP)}
