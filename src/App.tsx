@@ -74,6 +74,18 @@ function App() {
 
   if (passcodeData == undefined) {
 
+    if (molting) {
+      return (
+        <>
+          <img src='https://raw.githubusercontent.com/shermansplanet/wedding/main/src/assets/molting-circus.jpg'
+            style={{ width: "400px" }} />
+          <div className="card">
+            {getContent(Tabs.LARP)}
+          </div>
+        </>
+      )
+    }
+
     function getCookie(cname: string): string {
       let name = cname + "=";
       let decodedCookie = decodeURIComponent(document.cookie);
@@ -106,18 +118,6 @@ function App() {
       }).catch((error) => {
         console.error(error);
       });
-    }
-
-    if (molting) {
-      return (
-        <>
-          <img src='https://raw.githubusercontent.com/shermansplanet/wedding/main/src/assets/molting-circus.jpg'
-            style={{ width: "400px" }} />
-          <div className="card">
-            {getContent(Tabs.LARP)}
-          </div>
-        </>
-      )
     }
 
     return (
