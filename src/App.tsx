@@ -31,6 +31,7 @@ function App() {
   const [passcode, setPasscode] = useState<string>("");
   const [error, setError] = useState<string>("");
   const [passcodeData, setPasscodeData] = useState<GuestData>();
+  const [molting, setMolting] = useState<boolean>();
   let app: FirebaseApp;
   let dbRef: DatabaseReference;
 
@@ -91,6 +92,10 @@ function App() {
 
     let cachedPasscode = getCookie("passcode");
     if (cachedPasscode != "") {
+      if (cachedPasscode == "molting") {
+        setMolting(true);
+        return;
+      }
       get(child(dbRef, `passcodes/` + cachedPasscode)).then((snapshot) => {
         if (snapshot.exists()) {
           setPasscode(cachedPasscode);
@@ -101,6 +106,18 @@ function App() {
       }).catch((error) => {
         console.error(error);
       });
+    }
+
+    if (molting) {
+      return (
+        <>
+          <img src='https://i.imgur.com/zmI30rM.jpeg'
+            style={{ width: "400px" }} />
+          <div className="card">
+            {getContent(Tabs.LARP)}
+          </div>
+        </>
+      )
     }
 
     return (
@@ -115,6 +132,10 @@ function App() {
           <div style={{ height: 16 }} />
           <button onClick={() => {
             document.cookie = "passcode=" + passcode + "; expires=Sun, 25 Aug 2024 12:00:00 UTC";
+            if (passcode === "molting") {
+              setMolting(true);
+              return;
+            }
             get(child(dbRef, `passcodes/` + passcode)).then((snapshot) => {
               if (snapshot.exists()) {
                 setPasscodeData(snapshot.val())

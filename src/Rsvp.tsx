@@ -54,6 +54,7 @@ const Rsvp = ({ guestData, passcode }: RsvpProps) => {
     }
 
     try {
+        console.log("setting");
         set(ref(getDatabase(), 'passcodes/' + passcode + "/rsvp"), rsvps);
         if (timeout != undefined) {
             clearTimeout(timeout);
