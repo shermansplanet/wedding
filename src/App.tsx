@@ -59,7 +59,18 @@ function App() {
       case Tabs.DRESS_CODE:
         return <p>You are dressing up for the park. More to come later!</p>;
       case Tabs.FAQ:
-        return <p>No one has asked us a question yet.</p>;
+        return <div style={{ maxWidth: "100%", padding: "0px 12%" }}>
+          <div style={{ maxWidth: "650px" }}>
+            <p><b>Will there be alcohol?</b></p>
+            <p>Nope! There will be seasonal aguas frescas.</p><br />
+            <p><b>Is there a wedding registry?</b></p>
+            <p>There is no wedding registry, but there will be a box for thoughtful cards at the wedding.</p>
+            <p>You can also venmo @taraliu any amount greater than $1 with the comment "dinner quest," and we will try to have a dinner that costs that exact amount and send you a photo with a review ^-^</p>
+            <br />
+            <p><b>Will Sharky be there?</b></p>
+            <p>Sharky will not be attending. He sends his regrets.</p>
+          </div>
+        </div>;
       case Tabs.LARP:
         return <Larp />;
       case Tabs.RSVP:
