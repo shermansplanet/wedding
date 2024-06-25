@@ -62,7 +62,20 @@ function App() {
         return <div style={{ maxWidth: "100%", padding: "0px 12%" }}>
           <div style={{ maxWidth: "650px" }}>
             <p><b>Will there be alcohol?</b></p>
-            <p>Nope! There will be seasonal aguas frescas.</p><br />
+            <p>Nope! There will be seasonal aguas frescas.</p>
+            <br />
+            <p><b>What are the transit options?</b></p>
+            <p>If you're coming from out of town, it's best to fly into SFO or OAK airports.
+              The wedding venue is a short walk from the 16th Street Mission BART stop, and is on several bus lines.
+              The only parking option at the venue is street parking, but there is a <a href="https://californiaparking.com/2351-mission-st/">parking garage</a> a 15-minute walk away. We recommend public transit over driving.</p>
+            <br />
+            <p><b>Where should we stay?</b></p>
+            <p>Hotels in the immediate area are sparse, but there are AirBnBs in the Mission and Potrero Hill neighborhoods. We're happy to answer questions about specific areas, especially if you're new to the city.</p>
+            <br />
+            <p><b>What are your favorite things to do in the city?</b></p>
+            <p>Our favorite restaurants include Spork (Chinatown), Sushi on North Beach, and Chili Cha Cha 2 (Mission). We recommend getting ice cream at Bi-Rite, Swensen's, or Salt & Straw.
+              For a fun touristy day, check out the sea lions at Pier 39 then take a stroll around Coit Tower - or wander down Haight Street to Golden Gate Park.</p>
+            <br />
             <p><b>Is there a wedding registry?</b></p>
             <p>There is no wedding registry, but there will be a box for thoughtful cards at the wedding.</p>
             <p>You can also venmo @taraliu any amount greater than $1 with the comment "dinner quest," and we will try to have a dinner that costs that exact amount and send you a photo with a review ^-^</p>
