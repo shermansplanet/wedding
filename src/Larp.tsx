@@ -5,7 +5,7 @@ function Larp() {
         <div style={{ width: "350px" }}>
             <p>
                 We're running a LARP the day before the wedding!
-                It will be the afternoon of the 23rd at Langton Labs (9 Langton Street, San Francisco).
+                It will be from 5pm to 8pm on the 23rd at Langton Labs (9 Langton Street, San Francisco).
             </p>
             <p>
                 This game is about a haunted circus visiting the strange town of Well's Spring.

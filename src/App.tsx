@@ -61,6 +61,9 @@ function App() {
       case Tabs.FAQ:
         return <div style={{ maxWidth: "100%", padding: "0px 12%" }}>
           <div style={{ maxWidth: "650px" }}>
+            <p><b>How many people will be there?</b></p>
+            <p>There will be around 40 guests.</p>
+            <br />
             <p><b>Will there be alcohol?</b></p>
             <p>Nope! There will be seasonal aguas frescas.</p>
             <br />
