@@ -3,7 +3,7 @@ import './App.css'
 function Schedule() {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'center' }}>
-      <h2>Tentative Wedding Schedule</h2>
+      <h2>Wedding Schedule</h2>
       <p>August 24, 2024</p>
       <p>Stable Cafe </p>
       <p>2128 Folsom St, San Francisco, CA 94110</p>
