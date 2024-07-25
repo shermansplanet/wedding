@@ -57,7 +57,7 @@ function App() {
       case Tabs.SCHEDULE:
         return <Schedule />;
       case Tabs.DRESS_CODE:
-        return <div style={{ maxWidth: "690px" }}>
+        return <div style={{ maxWidth: "760px" }}>
           <img style={{ maxWidth: "100%", zIndex: 0 }}
             src='https://raw.githubusercontent.com/shermansplanet/wedding/main/src/assets/dresscode.jpg' ></img>
         </div>;
