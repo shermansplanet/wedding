@@ -57,7 +57,7 @@ function App() {
       case Tabs.SCHEDULE:
         return <Schedule />;
       case Tabs.DRESS_CODE:
-        return <div style={{ maxWidth: "650px" }}>Semi-formal, nature-inspired.<br />Bring a coat; it can get chilly after dark in SF.</div>;
+        return <div style={{ maxWidth: "650px" }}>Semi-formal, nature-inspired. <br />Bring a coat; it can get chilly after dark in SF.</div>;
       case Tabs.FAQ:
         return <div style={{ maxWidth: "100%", padding: "0px 12%" }}>
           <div style={{ maxWidth: "650px" }}>
