@@ -57,7 +57,10 @@ function App() {
       case Tabs.SCHEDULE:
         return <Schedule />;
       case Tabs.DRESS_CODE:
-        return <div style={{ maxWidth: "650px" }}>Semi-formal, nature-inspired. <br />Bring a coat; it can get chilly after dark in SF.</div>;
+        return <div style={{ maxWidth: "690px" }}>
+          <img style={{ maxWidth: "100%", zIndex: 0 }}
+            src='https://raw.githubusercontent.com/shermansplanet/wedding/main/src/assets/dresscode.jpg' ></img>
+        </div>;
       case Tabs.FAQ:
         return <div style={{ maxWidth: "100%", padding: "0px 12%" }}>
           <div style={{ maxWidth: "650px" }}>
@@ -105,7 +108,7 @@ function App() {
       return (
         <>
           <img src='https://raw.githubusercontent.com/shermansplanet/wedding/main/src/assets/molting-circus.jpg'
-            style={{ width: "400px" }} />
+            style={{ width: "400px" }} ></img>
           <div className="card">
             {getContent(Tabs.LARP)}
           </div>
