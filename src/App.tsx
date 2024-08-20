@@ -79,7 +79,7 @@ function App() {
             <p>Hotels in the immediate area are sparse, but there are AirBnBs in the Mission and Potrero Hill neighborhoods. We're happy to answer questions about specific areas, especially if you're new to the city.</p>
             <br />
             <p><b>What are your favorite things to do in the city?</b></p>
-            <p>Our favorite restaurants include Spork (Chinatown), Sushi on North Beach, and Chili Cha Cha 2 (Mission). We recommend getting ice cream at Bi-Rite, Swensen's, or Salt & Straw.
+            <p>Our favorite restaurants include Spork (Chinatown), Sushi on North Beach, and The Spice Jar (Mission). The Spice Jar's garlic noodles are especially good! We recommend getting ice cream at Bi-Rite, Swensen's, or Salt & Straw.
               For a fun touristy day, check out the sea lions at Pier 39 then take a stroll around Coit Tower - or wander down Haight Street to Golden Gate Park.</p>
             <br />
             <p><b>Is there a wedding registry?</b></p>
